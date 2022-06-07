@@ -67,6 +67,18 @@ class HeaderSection extends StatelessWidget{
           bottomLeft: Radius.circular(50),
         )
       ),
+       child: Stack(children: [
+         Positioned(
+           left: 20,
+           bottom: 30 ,
+           child:  Text('Darth Vader ', 
+           style: GoogleFonts.pollerOne(
+             color: Colors.redAccent, 
+             fontSize: 43, 
+             fontWeight: FontWeight.w800
+           ),),
+         )
+       ]),
     );
   }
 }

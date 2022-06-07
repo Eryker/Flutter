@@ -27,14 +27,8 @@ class HomePage extends StatelessWidget {
      body: SingleChildScrollView(
        child: Column(
          children: [
-           Container(
-             height: 200,
-             color: Colors.red,
-           ),
-           Container(
-             height: 200,
-             color: Colors.blue,
-           ),
+           HeaderSection(),
+           PlaylistSection() 
          ],
        ),
      )
@@ -55,5 +49,35 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
        actions: [IconButton(icon: Icon(Icons.more_vert, color: Colors.white,size: 25,), onPressed: null,), ],
      );
     
+  }
+}
+
+class HeaderSection extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){
+    return Container(
+      height: 500,
+      decoration: const BoxDecoration(
+        color: Colors.red,
+        image: DecorationImage(image: 
+        AssetImage('images/dark.jpeg'),
+        fit: BoxFit.cover,
+        ),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(50),
+        )
+      ),
+    );
+  }
+}
+
+
+class PlaylistSection extends StatelessWidget{
+  @override 
+  Widget build(BuildContext context){ 
+    return Container(
+      height: 500,
+      color: Colors.white,
+    );
   }
 }

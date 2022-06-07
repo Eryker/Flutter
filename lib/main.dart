@@ -16,16 +16,30 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
 class HomePage extends StatelessWidget {
  @override 
  Widget build(BuildContext context) {
    return Scaffold(
-     appBar: AppBar(
-       title: Text('Home'),
-     ),
-     body: Container(
-       color: Colors.amber,
-     ),
+     backgroundColor: Colors.blue,
+     extendBodyBehindAppBar: true,
+     appBar: MyAppBar()
+     //  body: const Text('Hello World')
    );
  }
+}
+
+
+
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  Size get PreferredSize => new Size.fromHeight(60);
+  @override 
+  Widget build(BuildContext context){
+    return AppBar(
+       elevation: 0,
+       leading: IconButton(icon: Icon(Icons.menu, color: Colors.white,), onPressed: null,),
+       actions: [IconButton(icon: Icon(Icons.more_vert, color: Colors.white,), onPressed: null,), ],
+     );
+    
+  }
 }

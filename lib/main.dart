@@ -17,14 +17,27 @@ class MyApp extends StatelessWidget {
 }
 
 
+// Contenu de la Page Principale 
 class HomePage extends StatelessWidget {
  @override 
  Widget build(BuildContext context) {
    return Scaffold(
-     backgroundColor: Colors.blue,
      extendBodyBehindAppBar: true,
-     appBar: MyAppBar()
-     //  body: const Text('Hello World')
+     appBar: MyAppBar(),
+     body: SingleChildScrollView(
+       child: Column(
+         children: [
+           Container(
+             height: 200,
+             color: Colors.red,
+           ),
+           Container(
+             height: 200,
+             color: Colors.blue,
+           ),
+         ],
+       ),
+     )
    );
  }
 }
@@ -32,13 +45,14 @@ class HomePage extends StatelessWidget {
 
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  Size get PreferredSize => new Size.fromHeight(60);
+  Size get preferredSize => new Size.fromHeight(60);
   @override 
   Widget build(BuildContext context){
     return AppBar(
+      backgroundColor: Colors.white.withOpacity(0),
        elevation: 0,
-       leading: IconButton(icon: Icon(Icons.menu, color: Colors.white,), onPressed: null,),
-       actions: [IconButton(icon: Icon(Icons.more_vert, color: Colors.white,), onPressed: null,), ],
+       leading: IconButton(icon: Icon(Icons.menu, color: Colors.white, size: 25,), onPressed: null,),
+       actions: [IconButton(icon: Icon(Icons.more_vert, color: Colors.white,size: 25,), onPressed: null,), ],
      );
     
   }

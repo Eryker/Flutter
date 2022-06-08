@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  @override 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -16,94 +16,126 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-// Contenu de la Page Principale 
+// Contenu de la Page Principale
 class HomePage extends StatelessWidget {
- @override 
- Widget build(BuildContext context) {
-   return Scaffold(
-     extendBodyBehindAppBar: true,
-     appBar: MyAppBar(),
-     body: SingleChildScrollView(
-       child: Column(
-         children: [
-           HeaderSection(),
-           PlaylistSection() 
-         ],
-       ),
-     )
-   );
- }
-}
-
-
-
-class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
-  Size get preferredSize => new Size.fromHeight(60);
-  @override 
-  Widget build(BuildContext context){
-    return AppBar(
-      backgroundColor: Colors.white.withOpacity(0),
-       elevation: 0,
-       leading: IconButton(icon: Icon(Icons.menu, color: Colors.white, size: 25,), onPressed: null,),
-       actions: [IconButton(icon: Icon(Icons.more_vert, color: Colors.white,size: 25,), onPressed: null,), ],
-     );
-    
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: MyAppBar(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [HeaderSection(), PlaylistSection()],
+          ),
+        ));
   }
 }
 
-class HeaderSection extends StatelessWidget{
-  @override 
-  Widget build(BuildContext context){
-    return Container(
-      height: 500,
-      decoration: const BoxDecoration(
-        color: Colors.red,
-        image: DecorationImage(image: 
-        AssetImage('images/dark.jpeg'),
-        fit: BoxFit.cover,
+class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
+  Size get preferredSize => new Size.fromHeight(60);
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white.withOpacity(0),
+      elevation: 0,
+      leading: const IconButton(
+        icon: Icon(
+          Icons.menu,
+          color: Colors.white,
+          size: 25,
         ),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(50),
-        )
+        onPressed: null,
       ),
-       child: Stack(children: [
-         Positioned(
-           left: 20,
-           bottom: 30 ,
-           child:  Text('Vader ', 
-           style: GoogleFonts.pollerOne(
-             color: Colors.redAccent, 
-             fontSize: 43, 
-             fontWeight: FontWeight.w800 
-           ),),
-         ),
-         Positioned(
-           right: 0,
-           bottom: 20,
-           child:  MaterialButton(onPressed: (){},
-           color: Colors.red,
-           shape: CircleBorder(),
-           child: Padding(
-           padding: EdgeInsets.all(17),
-           child: Icon(Icons.dry_outlined, 
-           color: Colors.white,
-           size: 30,),
-           ),
-           ))
-       ],
-       ), 
+      actions: const [
+        IconButton(
+          icon: Icon(
+            Icons.more_vert,
+            color: Colors.white,
+            size: 25,
+          ),
+          onPressed: null,
+        ),
+      ],
     );
   }
 }
 
-
-class PlaylistSection extends StatelessWidget{
-  @override 
-  Widget build(BuildContext context){ 
+class HeaderSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: 500,
-      color: Colors.white,
+      decoration: const BoxDecoration(
+          color: Colors.red,
+          image: DecorationImage(
+            image: AssetImage('images/dark.jpeg'),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(50),
+          )),
+      child: Stack(
+        children: [
+          Positioned(
+            left: 20,
+            bottom: 30,
+            child: Text(
+              'Vader ',
+              style: GoogleFonts.pollerOne(
+                  color: Colors.redAccent,
+                  fontSize: 43,
+                  fontWeight: FontWeight.w800),
+            ),
+          ),
+          Positioned(
+              right: 0,
+              bottom: 20,
+              child: MaterialButton(
+                onPressed: () {},
+                color: Colors.red,
+                shape: const CircleBorder(),
+                child: const Padding(
+                  padding: EdgeInsets.all(17),
+                  child: Icon(
+                    Icons.dry_outlined,
+                    color: Colors.white,
+                    size: 30,
+                  ),
+                ),
+              ))
+        ],
+      ),
+    );
+  }
+}
+
+class PlaylistSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.fromLTRB(30, 40, 20, 20),
+      child: Column(children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Sith',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(right: 10),
+              child: Text(
+                'Show All',
+                style: TextStyle(fontSize: 13, color: Colors.redAccent),
+              ),
+            )
+          ],
+        )
+      ]),
     );
   }
 }

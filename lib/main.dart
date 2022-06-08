@@ -37,17 +37,27 @@ class BottomSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.red,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       items: [
         BottomNavigationBarItem(
-          icon: Icon(Icons.pause),
+          icon: Icon(
+            Icons.pause,
+            color: Colors.white,
+          ),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.pause),
+          icon: Text(
+            'Anakin Skywalker',
+            style: TextStyle(
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.w400),
+          ),
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.pause),
+          icon: Icon(Icons.arrow_circle_up, color: Colors.white),
           label: '',
         )
       ],

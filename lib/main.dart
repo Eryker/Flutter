@@ -21,13 +21,37 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: MyAppBar(),
-        body: SingleChildScrollView(
-          child: Column(
-            children: [HeaderSection(), PlaylistSection()],
-          ),
-        ));
+      extendBodyBehindAppBar: true,
+      appBar: MyAppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [HeaderSection(), PlaylistSection()],
+        ),
+      ),
+      bottomNavigationBar: BottomSection(),
+    );
+  }
+}
+
+class BottomSection extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.pause),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.pause),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.pause),
+          label: '',
+        )
+      ],
+    );
   }
 }
 

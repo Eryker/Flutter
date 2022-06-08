@@ -110,6 +110,33 @@ class HeaderSection extends StatelessWidget {
 }
 
 class PlaylistSection extends StatelessWidget {
+  final List playList = [
+    {
+      'title': 'Skywalker',
+      'duration': '3.15',
+      'played': false,
+    },
+    {
+      'title': 'Jedi Wars',
+      'duration': '4.27',
+      'played': false,
+    },
+    {
+      'title': '66',
+      'duration': '2.33',
+      'played': true,
+    },
+    {
+      'title': 'Death Star',
+      'duration': '3.32',
+      'played': false,
+    },
+    {
+      'title': 'Redemption',
+      'duration': '7.12',
+      'played': false,
+    },
+  ];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -134,6 +161,17 @@ class PlaylistSection extends StatelessWidget {
               ),
             )
           ],
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Column(
+          children: playList.map((song) {
+            return Container(
+              height: 70,
+              child: Text(song['title']),
+            );
+          }).toList(),
         )
       ]),
     );

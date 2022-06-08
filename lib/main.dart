@@ -172,13 +172,23 @@ class PlaylistSection extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(song['title']),
+                  Text(
+                    song['title'],
+                    style: TextStyle(
+                        color: song['played'] ? Colors.red : Colors.black,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
                   Row(
                     children: [
-                      Text(song['duration']),
+                      Text(song['duration'],
+                          style: TextStyle(
+                              color: song['played'] ? Colors.red : Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400)),
                       Icon(
                         Icons.more_vert,
-                        color: Colors.grey,
+                        color: song['played'] ? Colors.red : Colors.grey,
                       )
                     ],
                   )

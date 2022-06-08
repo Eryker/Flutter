@@ -169,7 +169,21 @@ class PlaylistSection extends StatelessWidget {
           children: playList.map((song) {
             return Container(
               height: 70,
-              child: Text(song['title']),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(song['title']),
+                  Row(
+                    children: [
+                      Text(song['duration']),
+                      Icon(
+                        Icons.more_vert,
+                        color: Colors.grey,
+                      )
+                    ],
+                  )
+                ],
+              ),
             );
           }).toList(),
         )

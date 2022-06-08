@@ -126,7 +126,14 @@ class HeaderSection extends StatelessWidget {
               right: 0,
               bottom: 20,
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlayerPage(),
+                    ),
+                  );
+                },
                 color: Colors.red,
                 shape: const CircleBorder(),
                 child: const Padding(
